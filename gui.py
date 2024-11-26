@@ -1,6 +1,8 @@
 import wx
 
+app = wx.App(False)  # Initialize the wx App
 def show_selection_dialog(options):
+
     dialog = wx.SingleChoiceDialog(None, "Choose one of the options:", "Select an Option", options)
 
     if dialog.ShowModal() == wx.ID_OK:
