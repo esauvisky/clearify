@@ -1,0 +1,4 @@
+wxPython
+loguru
+pyperclip
+openai
