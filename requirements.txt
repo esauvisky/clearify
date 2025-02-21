@@ -2,3 +2,4 @@ wxPython
 loguru
 pyperclip
 openai
+pynput==1.7.7
