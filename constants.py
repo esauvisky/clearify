@@ -10,6 +10,8 @@ SYSTEM = """You are tasked with analyzing and reconstructing a given text. Your 
 8. Ignore minor typos or spelling errors, retaining them unless they significantly affect clarity. *(At least 3 out of 5 versions)*
 9. Use proper Markdown structures where applicable, such as wrapping code in code blocks or enumerating items into lists if it enhances readability and makes sense. *(At least 3 out of 5 versions)*
 
+Note: If additional instructions are provided, apply them to 4 out of the 5 versions.
+
 Remember:
 - The objective is to generate varied yet coherent versions, with each appearing as though authored by the original individual.
 - Variation should explore informal language or slang as used in the original where applicable.
