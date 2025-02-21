@@ -27,7 +27,7 @@ def handle_selection():
 
 def get_clipboard():
     # Read data from the clipboard using pyperclip
-    clipboard = pyperclip.paste().strip()
+    clipboard = pyperclip.paste()
     if not clipboard:
         raise Exception("No text selected or clipboard is empty.")
     return clipboard
