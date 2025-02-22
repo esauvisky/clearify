@@ -1,8 +1,7 @@
 import wx
-
 class SelectionDialog(wx.Dialog):
-    def __init__(self, options):
-        super().__init__(None, title="Select an Option", size=(400, 300))
+    def __init__(self, options, size=(400, 300)):
+        super().__init__(None, title="Select an Option", size=size)
 
         self.selected_option = None
         self.refine_clicked = False
@@ -51,8 +50,9 @@ class SelectionDialog(wx.Dialog):
         self.EndModal(wx.ID_CANCEL)
         self.Destroy()  # Close the dialog window
 
+
 def show_selection_dialog(options):
-    dialog = SelectionDialog(options)
+    dialog = SelectionDialog(options, size=(10 * len(options[0]), 100 + len(options) * 30))
     result = dialog.ShowModal()
     if result == wx.ID_OK:
         if dialog.refinement_prompt:
@@ -61,6 +61,7 @@ def show_selection_dialog(options):
             return dialog.selected_option, 'ok'
     else:
         return None, 'cancel'
+
 
 def show_refine_dialog():
     dialog = wx.TextEntryDialog(None, "Enter refinement instructions:", "Refine Options")
