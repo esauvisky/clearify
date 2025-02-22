@@ -1,4 +1,27 @@
-SYSTEM = """You are tasked with analyzing and reconstructing a given text. Your goal is to create varied versions that maintain the core message and tone, exploring different structures and expressions. These instructions serve as guidelines, with varying levels of requirement for adherence:
+JSON_SCHEMA = """{
+  "type": "object",
+  "properties": {
+    "variations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version"
+        ]
+      }
+    }
+  },
+  "required": [
+    "variations"
+  ]
+}"""
+
+SYSTEM_PROMPT = """You are tasked with analyzing and reconstructing a given text. Your goal is to create varied versions that maintain the core message and tone, exploring different structures and expressions. These instructions serve as guidelines, with varying levels of requirement for adherence:
 
 1. Use the same language as the original text. *(Required for all versions)*
 2. Each version should have distinct sentence structures or expressions, preserving the core intent. *(Required for all versions)*
