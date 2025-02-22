@@ -1,11 +1,8 @@
 import platform
 import time
 from loguru import logger
-from pynput.keyboard import Key, Listener, Controller
 import pyperclip
-
-# Keyboard controller to simulate typing
-keyboard = Controller()
+import pyautogui
 
 def send_to_clipboard(content):
     pyperclip.copy(content)
@@ -13,25 +10,20 @@ def send_to_clipboard(content):
 
 def paste_clipboard():
     time.sleep(0.1)
-    keyboard.press(Key.ctrl)
-    keyboard.press('v')
-    keyboard.release('v')
-    keyboard.release(Key.ctrl)
+    pyautogui.hotkey("ctrl", "v")
 
 def handle_selection():
-    # Simulate copying the selection to clipboard
-    keyboard.press(Key.ctrl)
-    keyboard.press('c')
-    keyboard.release('c')
-    keyboard.release(Key.ctrl)
+    logger.debug("Copying to clipboard...")
+    pyautogui.hotkey("ctrl", "c")
+    logger.debug("Copied to clipboard.")
 
 def get_clipboard():
-    # Read data from the clipboard using pyperclip
+    logger.debug("Reading clipboard...")
     clipboard = pyperclip.paste()
     if not clipboard:
         raise Exception("No text selected or clipboard is empty.")
+    logger.debug("Read clipboard.")
     return clipboard
 
 def delete_selection():
-    keyboard.press(Key.backspace)
-    keyboard.release(Key.backspace)
+    pyautogui.hotkey("backspace")
