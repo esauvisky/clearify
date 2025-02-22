@@ -3,3 +3,5 @@ loguru
 pyperclip
 openai
 pynput==1.7.7
+google-generativeai==0.8.4
+PyAutoGUI==0.9.54
